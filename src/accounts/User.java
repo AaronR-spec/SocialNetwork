@@ -73,7 +73,42 @@ public class User
     {
         this.posts = posts;
     }
+     //<--------------------- UNTESTED ------------------------------>
 
+    //adds friend hash set doesnt allow duplicates 
+    public void addFriend(Account friend)
+    {
+        this.getFriends().put(friend.accountId, friend);
+    }
+    //<--------------------- UNTESTED ------------------------------>
+
+    //removes friend from list
+    public void removeFriend(String accountId)
+    {
+        this.getFriends().remove(accountId);
+    }
+    
+    //<--------------------- UNTESTED ------------------------------>
+    public Account getFriend(String id)
+    {
+        if(this.getFriends().containsKey(id))
+        {
+          return this.getFriend(id);
+        }
+        return null;
+    }
+    //<--------------------- UNTESTED ------------------------------>
+    public Account getMutualFriend(String id)
+    {
+        if(this.getMutualFriends().containsKey(id))
+        {
+          return this.getMutualFriends().get(id);
+        }
+        return null;
+    }
+    
+    
+    
     @Override
     public String toString()
     {
