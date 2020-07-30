@@ -36,17 +36,17 @@ public class User
 
     public HashMap<String, Account> getFriends()
     {
-        return friends;
+        return copyAccounts(friends);
     }
 
     public HashMap<String, Account> getMutualFriends()
     {
-        return mutualFriends;
+        return copyAccounts(mutualFriends);
     }
 
     public HashMap<String, Post> getPosts()
     {
-        return posts;
+        return copyPosts(posts);
     }
 
     public void setName(String name)
@@ -81,34 +81,34 @@ public class User
         this.getFriends().put(friend.accountId, friend);
     }
     //<--------------------- UNTESTED ------------------------------>
-
     //removes friend from list
     public void removeFriend(String accountId)
     {
         this.getFriends().remove(accountId);
     }
-    
+   
     //<--------------------- UNTESTED ------------------------------>
-    public Account getFriend(String id)
+    public void addPost(String content)
     {
-        if(this.getFriends().containsKey(id))
-        {
-          return this.getFriend(id);
-        }
-        return null;
+        //add post with index from dao and then add it too database
     }
     //<--------------------- UNTESTED ------------------------------>
-    public Account getMutualFriend(String id)
+    public void addRemove(String id)
     {
-        if(this.getMutualFriends().containsKey(id))
-        {
-          return this.getMutualFriends().get(id);
-        }
-        return null;
+        this.getPosts().remove(id);
     }
-    
-    
-    
+     //<--------------------- UNTESTED ------------------------------>
+    private HashMap<String,Account> copyAccounts(HashMap<String,Account> map)
+    {
+         HashMap<String, Account> shallowCopy = new HashMap<>(map);
+         return shallowCopy;
+    }
+     //<--------------------- UNTESTED ------------------------------>
+     private HashMap<String,Post> copyPosts(HashMap<String,Post> map)
+    {
+         HashMap<String,Post> shallowCopy = new HashMap<>(map);
+         return shallowCopy;
+    }
     @Override
     public String toString()
     {
