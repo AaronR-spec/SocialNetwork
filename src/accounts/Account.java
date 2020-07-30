@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package accounts;
 
 import java.util.HashMap;
@@ -20,4 +17,68 @@ public class Account
     //account id list of friends
     HashSet<String> friends = new HashSet<>();
     boolean accountPrivate;
+
+    public Account(String name, String accountId, boolean accountPrivate)
+    {
+        this.name = name;
+        this.accountId = accountId;
+        this.accountPrivate = accountPrivate;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getAccountId()
+    {
+        return accountId;
+    }
+
+    public HashMap<String, Post> getPosts()
+    {
+        return posts;
+    }
+
+    public HashSet<String> getFriends()
+    {
+        return friends;
+    }
+
+    public boolean isAccountPrivate()
+    {
+        return accountPrivate;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
+    }
+
+    public void setAccountId(String accountId)
+    {
+        this.accountId = accountId;
+    }
+
+    public void setPosts(HashMap<String, Post> posts)
+    {
+        this.posts = posts;
+    }
+
+    public void setFriends(HashSet<String> friends)
+    {
+        this.friends = friends;
+    }
+
+    public void setAccountPrivate(boolean accountPrivate)
+    {
+        this.accountPrivate = accountPrivate;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Account{" + "name=" + this.getName() + ", accountId=" + this.getAccountId() + ", posts=" + this.getPosts() + ", friends=" + this.getFriends() + ", accountPrivate=" + this.isAccountPrivate() + '}';
+    }
+    
 }
